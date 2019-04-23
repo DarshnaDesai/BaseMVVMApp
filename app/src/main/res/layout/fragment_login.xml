@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.georeminder.ui.login.LoginViewModel" />
+
+        <variable
+            name="frag"
+            type="com.georeminder.ui.login.LoginFragment" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/bg_gradient"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/animated_app_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvHello"
+            style="@style/huge_poppins_reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/title_hello"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+
+        <TextSwitcher
+            android:id="@+id/tvSign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHello" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            app:layout_constraintBottom_toTopOf="@id/textView"
+            app:layout_constraintTop_toBottomOf="@id/tvSign">
+
+            <LinearLayout
+                android:id="@+id/llMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:background="@android:color/white"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <EditText
+                    android:id="@+id/etFname"
+                    style="@style/etMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/hint_first_name"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/etLname"
+                    style="@style/etMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/hint_last_name"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    style="@style/etMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_email"
+                    android:text="rujul.gandhi@imobdev.com"
+                    android:inputType="textEmailAddress" />
+                <!--android:onQueryTextChange="@{viewModel.onTextChange()}"-->
+                <!--android:onTextChanged="@{(text, start, before, count) -> viewModel.onTextChange(text)}"-->
+
+                <EditText
+                    android:id="@+id/etDob"
+                    style="@style/etMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:drawableEnd="@drawable/ic_calender"
+                    android:focusable="false"
+                    android:hint="@string/hint_date_of_birth"
+                    android:longClickable="false"
+                    android:paddingRight="@dimen/large_padding"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/etGender"
+                    style="@style/etMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:drawableEnd="@drawable/ic_down_arrow"
+                    android:focusable="false"
+                    android:hint="@string/hint_gender"
+                    android:longClickable="false"
+                    android:paddingRight="@dimen/large_padding"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/etPhone"
+                    style="@style/etMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/hint_phone"
+                    android:imeOptions="actionDone"
+                    android:inputType="phone"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    style="@style/etMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/hint_password"
+                    android:text="12345678"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword" />
+
+                <TextView
+                    android:id="@+id/tvForgotPassword"
+                    style="@style/subLoginTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:onClick="@{()->frag.onForgotPassword()}"
+                    android:text="@string/action_forgot_password"
+                    android:textColor="@color/darkGreenText" />
+
+                <Button
+                    android:id="@+id/btnSign"
+                    style="@style/btnMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:onClick="@{()->frag.onSubmit()}"
+                    android:text="@string/action_sign_in" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <TextSwitcher
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#60FFFFFF"
+            android:gravity="center"
+            android:onClick="@{()->frag.onChangePage()}"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!--<TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#60FFFFFF"
+            android:gravity="center"
+            android:onClick="@{()->frag.onSubmit()}"
+            android:padding="@dimen/_10sdp"
+            android:text="Don't have an account? SIGN UP"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />-->
+    </android.support.constraint.ConstraintLayout>
+</layout>

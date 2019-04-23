@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dashboard_navigation"
+    app:startDestination="@id/navigationHomeFragment">
+
+    <fragment
+        android:id="@+id/navigationHomeFragment"
+        android:name="com.georeminder.ui.dashboard.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <!-- <argument
+             android:name="title"
+             app:argType="string"
+             android:defaultValue="@string/title_home"/>
+         <argument
+             android:name="testArg"
+             android:defaultValue="1"
+             app:argType="integer" />-->
+        <!--<argument
+            android:name="argtest"
+            android:defaultValue="DDD"
+            app:argType="string" />-->
+        <action
+            android:id="@+id/homeToAddRequest"
+            app:destination="@id/addRequestActivity"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigationRequestsFragment"
+        android:name="com.georeminder.ui.dashboard.requests.RequestsFragment"
+        android:label="fragment_requests"
+        tools:layout="@layout/fragment_requests">
+
+        <action
+            android:id="@+id/action_navigationRequestsFragment_to_navigationHomeFragment"
+            app:destination="@id/navigationHomeFragment" />
+
+        <action
+            android:id="@+id/requestListToAddRequest"
+            app:destination="@id/addRequestActivity"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigationFriendsFragment"
+        android:name="com.georeminder.ui.dashboard.friends.FriendsFragment"
+        android:label="fragment_friends"
+        tools:layout="@layout/fragment_friends" />
+
+    <fragment
+        android:id="@+id/navigationProfileFragment"
+        android:name="com.georeminder.ui.dashboard.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/actionToChangePassword"
+            app:destination="@id/navigationChangePassword" />
+
+    </fragment>
+
+    <activity
+        android:id="@+id/navigationChangePassword"
+        android:name="com.georeminder.ui.dashboard.changepassword.ChangePasswordActivity"
+        android:label="fragment_more"
+        tools:layout="@layout/fragment_change_password" />
+
+    <fragment
+        android:id="@+id/navigationMoreFragment"
+        android:name="com.georeminder.ui.dashboard.more.MoreFragment"
+        android:label="fragment_more"
+        tools:layout="@layout/fragment_more" />
+
+    <activity
+        android:id="@+id/addRequestActivity"
+        android:name="com.georeminder.ui.dashboard.requests.AddRequestActivity"
+        android:label="AddRequestActivity"
+        tools:layout="@layout/activity_add_request">
+        <!--<argument
+              android:name="argtest"
+              android:defaultValue="DDD"
+              app:argType="string" />-->
+    </activity>
+
+    <activity
+        android:id="@+id/requestDetailsActivity"
+        android:name="com.georeminder.ui.dashboard.requests.RequestDetailsActivity"
+        android:label="RequestDetailsActivity"
+        tools:layout="@layout/activity_request_details">
+        <!--<argument
+            android:name="data"
+            android:defaultValue="DDD"
+            app:argType="string" />-->
+    </activity>
+
+    <fragment
+        android:id="@+id/navigationRequestListFragment"
+        android:name="com.georeminder.ui.dashboard.requests.ReceivedRequestsFragment"
+        android:label="fragment_request_list"
+        tools:layout="@layout/fragment_received_requests">
+
+        <action
+            android:id="@+id/requestListToRequestDetails"
+            app:destination="@id/requestDetailsActivity"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+
+    </fragment>
+
+</navigation>

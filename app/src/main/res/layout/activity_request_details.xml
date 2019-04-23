@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="isRequested"
+            type="Boolean" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="reminderData"
+            type="com.georeminder.data.model.other.ReminderData" />
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbarLayout"
+            layout="@layout/app_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbarLayout" />
+
+        <ImageView
+            android:id="@+id/ivRequest"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/large_padding"
+            android:layout_marginTop="@dimen/large_padding"
+            android:background="@drawable/gray_circle"
+            android:padding="@dimen/large_padding"
+            android:src="@drawable/ic_food"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mapView" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            style="@style/small_poppins_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large_padding"
+            android:text="15 Dec"
+            android:textColor="@color/grayDark"
+            app:date="@{reminderData.createdDate}"
+            app:layout_constraintEnd_toEndOf="@id/ivRequest"
+            app:layout_constraintStart_toStartOf="@id/ivRequest"
+            app:layout_constraintTop_toBottomOf="@id/ivRequest" />
+
+        <TextView
+            android:id="@+id/tvRequestTitle"
+            style="@style/medium_poppins_semi_bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/large_padding"
+            android:layout_marginTop="@dimen/large_padding"
+            android:layout_marginRight="@dimen/large_padding"
+            android:text="@{reminderData.title}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/ivRequest"
+            app:layout_constraintTop_toBottomOf="@id/mapView"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@+id/tvRequestAddress"
+            style="@style/reg_poppins_light"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/large_padding"
+            android:layout_marginTop="@dimen/medium_padding"
+            android:layout_marginRight="@dimen/large_padding"
+            android:text="@{reminderData.address}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/ivRequest"
+            app:layout_constraintTop_toBottomOf="@id/tvRequestTitle"
+            tools:text="Address" />
+
+        <android.support.constraint.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="tvDate,tvRequestAddress" />
+
+        <TextView
+            android:id="@+id/tvRequestDesc"
+            style="@style/reg_poppins_light"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="@dimen/large_padding"
+            android:layout_marginTop="@dimen/large_padding"
+            android:layout_marginRight="@dimen/large_padding"
+            android:text="@{reminderData.description}"
+            android:textColor="@color/grayDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier"
+            tools:text="Description" />
+
+        <Button
+            android:id="@+id/btnAccept"
+            style="@style/btnMain"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/large_padding"
+            android:layout_marginTop="@dimen/large_padding"
+            android:layout_marginRight="@dimen/large_padding"
+            android:padding="@dimen/small_padding"
+            android:text="@string/action_accept"
+            app:layout_constraintEnd_toStartOf="@+id/btnReject"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRequestDesc" />
+
+        <Button
+            android:id="@+id/btnReject"
+            style="@style/btnMain"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/large_padding"
+            android:layout_marginTop="@dimen/large_padding"
+            android:layout_marginRight="@dimen/large_padding"
+            android:background="@drawable/red_button_ripple"
+            android:padding="@dimen/small_padding"
+            android:text="@string/action_reject"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnAccept"
+            app:layout_constraintTop_toBottomOf="@id/tvRequestDesc" />
+
+        <android.support.constraint.Group
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="btnAccept,btnReject"
+            app:isRequested="@{isRequested}"
+            app:statusValue="@{reminderData.status}" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "904499764379",
+    "firebase_url": "https://georeminder-7f278.firebaseio.com",
+    "project_id": "georeminder-7f278",
+    "storage_bucket": "georeminder-7f278.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904499764379:android:fa5659992e761432",
+        "android_client_info": {
+          "package_name": "com.georeminder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904499764379-43he3173mtqra82v1c85u8f3qqsrq2n2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCf2qoTnW9LRk58ZFfw2-d033_CUKu3_Uc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

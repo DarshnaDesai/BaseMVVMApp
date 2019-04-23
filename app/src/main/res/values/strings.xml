@@ -1,0 +1,155 @@
+<resources>
+    <string name="app_name">Geo Reminder</string>
+
+    <!--Common strings-->
+    <string name="action_retry">Retry</string>
+    <string name="msg_no_internet">No internet connection available.</string>
+
+    <!--Common Validation Messages-->
+    <string name="blank_data">Please enter data</string>
+
+    <string name="blank_username">Please enter username</string>
+    <string name="blank_email">Please enter email address</string>
+    <string name="blank_first_name">Please enter first name</string>
+    <string name="blank_last_name">Please enter last name</string>
+    <string name="blank_phone">Please enter phone number</string>
+    <string name="blank_password">Please enter password</string>
+    <string name="blank_current_password">Please enter current password</string>
+    <string name="blank_new_password">Please enter new password</string>
+    <string name="blank_confirm_password">Please enter confirm password</string>
+
+    <string name="blank_title">Please enter title</string>
+    <string name="blank_desc">Please enter description</string>
+    <string name="blank_address">Please select valid address</string>
+    <string name="blank_assign_to">Please select assign to</string>
+
+    <string name="invalid">Invalid data</string>
+    <string name="msg_all_field_required">All fields are required.</string>
+    <string name="invalid_email">Please enter valid email</string>
+    <string name="invalid_confirm_password">Password and confirm password does not match</string>
+    <string name="invalid_password">Password length should be minimum 8 characters.</string>
+    <!--<string name="invalid_password">Please enter valid password, password should be at least 6 characters long with 1 character and 1 number.</string>-->
+    <string name="invalid_phone">Please enter phone number between 10&#8211;15 digits.</string>
+
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <!--Sign in, Sign up-->
+    <string name="title_hello">Hello!</string>
+    <string name="msg_sign_in_continue">Sign in to continue</string>
+    <string name="msg_sign_up_continue">Sign up to continue</string>
+    <string name="msg_dont_have_account">Don\'t have an account? SIGN UP</string>
+    <string name="msg_already_have_account">Already have an account? SIGN IN</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_full_name">Full Name</string>
+    <string name="hint_first_name">First name</string>
+    <string name="hint_last_name">Last name</string>
+    <string name="hint_gender">Gender</string>
+    <string name="hint_phone">Phone</string>
+    <string name="hint_date_of_birth">Date of birth</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_up">Sign up</string>
+    <string name="action_forgot_password">Forgot Password?</string>
+
+    <!--Forgot password-->
+    <string name="title_forgot_password">Forgot Password</string>
+    <string name="msg_forgot_password">Enter your email address, we will email you instruction on how to reset password</string>
+    <string name="action_send">Send</string>
+    <string name="action_search">Search</string>
+
+    <string-array name="array_gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <!--Toolbar / Bottom bar titles-->
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_more">More</string>
+    <string name="title_add_request">Add Request</string>
+    <string name="title_received">Received</string>
+    <string name="title_requested">Requested</string>
+    <string name="title_friends">Friends</string>
+    <string name="title_details">Details</string>
+    <string name="title_blocked_contacts">Blocked Users</string>
+
+    <!--introduction screen-->
+    <string name="label_welcome_to_confess">welcome to confess!!</string>
+    <string name="label_confess_lets_you_anonymously_send_confession_to_your_friends_and_receive_vonfessions_from_them">confess lets you anonymously send confession to your friends and receive vonfessions from them.</string>
+    <string name="action_next">Next</string>
+    <string name="label_completely_anonymous">its completely anonymous</string>
+    <string name="label_all_confess_sent_are_anonymous">ALl confess sent are anonymous. Your friend will
+        only know that it came from one of their facebook friends.</string>
+
+    <!--Add Request-->
+    <string name="hint_title">Title</string>
+    <string name="hint_desc">Description</string>
+    <string name="hint_reminder_type">Reminder Type</string>
+    <string name="hint_pick_location">Pick Location</string>
+    <string name="hint_assign_to">Assign To</string>
+    <string name="title_radius">Radius</string>
+    <string name="title_reminder_items">Reminder Items</string>
+    <string name="action_submit">Submit</string>
+    <string name="action_edit">Edit</string>
+
+    <!--edit profile-->
+    <string name="lbl_pick_img_gallery">Gallery</string>
+    <string name="lbl_pick_img_camera">Camera</string>
+
+    <string name="title_accepted">Accepted</string>
+    <string name="title_rejected">Rejected</string>
+    <string name="title_pending">Pending</string>
+    <string name="title_cancelled">Cancelled</string>
+
+    <string name="action_accept">Accept</string>
+    <string name="action_reject">Reject</string>
+    <string name="action_block">Block</string>
+    <string name="action_un_block">UnBlock</string>
+
+    <!--More-->
+    <string name="title_notification">Notification</string>
+    <string name="title_set_radius">Set Radius</string>
+    <string name="title_help">Help</string>
+    <string name="title_terms">Terms and conditions</string>
+    <string name="title_block">Block user</string>
+    <string name="title_logout">Logout</string>
+    <string name="action_yes">Yes</string>
+    <string name="action_no">No</string>
+    <string name="msg_logout">Are you sure you want to logout?</string>
+
+    <string name="space">\u0020</string>
+    <string name="change_password">Change Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+
+    <string name="action_add">Add</string>
+    <string name="msg_add_friend">Enter emiail id to add your friend</string>
+
+    <string name="msg_sent_you_request">Sent you friend request</string>
+    <string name="msg_you_sent_request">You sent friend request</string>
+
+    <string name="geofence_unknown_error">Unknown error: the Geofence service is not available now.</string>
+    <string name="geofence_not_available">Geofence service is not available now. Go to Settings>Location>Mode and choose High accuracy.</string>
+    <string name="geofence_too_many_geofences">Your app has registered too many geofences.</string>
+    <string name="geofence_too_many_pending_intents">You have provided too many PendingIntents to the addGeofences() call.</string>
+
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+
+    <string name="msg_block_success">User blocked successfully!</string>
+
+</resources>

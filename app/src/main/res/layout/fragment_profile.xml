@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.georeminder.utils.AppUtils" />
+
+        <variable
+            name="frag"
+            type="com.georeminder.ui.dashboard.profile.ProfileFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.georeminder.ui.dashboard.profile.ProfileViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/topView"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_100sdp"
+            android:background="@color/bgStart"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.georeminder.customView.CircleImageView
+            android:id="@+id/ivProfileImage"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:onClick="@{()->frag.onChangeProfileImage()}"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="@dimen/_2sdp"
+            app:imageDefault="@{@drawable/ic_profile_placeholder}"
+            app:imageUrl="@{viewModel.userDataModel.userData.user_image_url}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvEdit"
+            style="@style/medium_poppins_reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->frag.onSwitchChange()}"
+            android:padding="@dimen/regular_padding"
+            android:text="@string/action_edit"
+            app:layout_constraintBottom_toBottomOf="@+id/topView"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ViewSwitcher
+            android:id="@+id/viewSwitcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="@dimen/_300sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivProfileImage">
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/medium_poppins_reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:maxLines="1"
+                android:text="@{viewModel.userDataModel.userData.user_first_name.concat(@string/space).concat(viewModel.userDataModel.userData.user_last_name)}" />
+
+            <EditText
+                android:id="@+id/etName"
+                style="@style/reg_poppins_reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="@string/hint_full_name"
+                android:maxLines="1"
+                android:text="@{viewModel.userDataModel.userData.user_first_name.concat(@string/space).concat(viewModel.userDataModel.userData.user_last_name)}" />
+
+        </ViewSwitcher>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/inputEmail"
+            style="@style/reg_light_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/regular_padding"
+            android:layout_marginTop="@dimen/regular_padding"
+            android:layout_marginRight="@dimen/regular_padding"
+            android:clickable="false"
+            android:focusable="false"
+            android:longClickable="false"
+            android:focusableInTouchMode="false"
+            app:layout_constraintTop_toBottomOf="@id/viewSwitcher">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/etEmail"
+                style="@style/reg_light_input_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="@string/hint_email"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:text="@{viewModel.userDataModel.userData.user_email}" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/inputDob"
+            style="@style/reg_light_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/regular_padding"
+            android:layout_marginRight="@dimen/regular_padding"
+            android:clickable="false"
+            android:focusable="false"
+            android:longClickable="false"
+            android:focusableInTouchMode="false"
+            app:layout_constraintTop_toBottomOf="@id/inputEmail">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/etDob"
+                style="@style/reg_light_input_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="@string/hint_date_of_birth"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:text="@{AppUtils.formatDate(viewModel.userDataModel.userData.user_dob)}" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/inputGender"
+            style="@style/reg_light_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/regular_padding"
+            android:layout_marginRight="@dimen/regular_padding"
+            android:clickable="false"
+            android:focusable="false"
+            android:longClickable="false"
+            android:focusableInTouchMode="false"
+            app:layout_constraintTop_toBottomOf="@id/inputDob">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/etGender"
+                style="@style/reg_light_input_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:drawableEnd="@drawable/ic_down_arrow"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="@string/hint_gender"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:text="@{viewModel.userDataModel.userData.user_gender}" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/inputPhone"
+            style="@style/reg_light_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/regular_padding"
+            android:layout_marginRight="@dimen/regular_padding"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            app:layout_constraintTop_toBottomOf="@id/inputGender">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/etPhone"
+                style="@style/reg_light_input_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="@string/hint_phone"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:text="@{viewModel.userDataModel.userData.user_phone}" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvChangePassword"
+            style="@style/reg_poppins_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/regular_padding"
+            android:layout_marginRight="@dimen/regular_padding"
+            android:drawableRight="@drawable/ic_right_arrow"
+            android:padding="@dimen/regular_padding"
+            android:text="@string/change_password"
+            android:textColor="@color/darkGreenText"
+            app:layout_constraintTop_toBottomOf="@+id/inputPhone" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

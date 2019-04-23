@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/dialog_upper_rounded_corner"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvGallery"
+            style="@style/reg_poppins_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:padding="@dimen/regular_padding"
+            android:text="@string/lbl_pick_img_gallery"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tvCamera"
+            style="@style/reg_poppins_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/regular_padding"
+            android:text="@string/lbl_pick_img_camera"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="reminderData"
+            type="com.georeminder.data.model.other.ReminderData" />
+
+        <variable
+            name="isRequested"
+            type="Boolean" />
+
+        <import type="com.georeminder.utils.AppUtils" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/medium_padding">
+
+            <ImageView
+                android:id="@+id/ivRequest"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/gray_circle"
+                android:padding="@dimen/medium_padding"
+                android:src="@drawable/ic_food"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                style="@style/small_poppins_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_padding"
+                android:text="15 Dec"
+                android:textColor="@color/grayDark"
+                app:date="@{AppUtils.getValue(reminderData.createdDate)}"
+                app:layout_constraintEnd_toEndOf="@id/ivRequest"
+                app:layout_constraintStart_toStartOf="@id/ivRequest"
+                app:layout_constraintTop_toBottomOf="@id/ivRequest" />
+
+            <TextView
+                android:id="@+id/tvRequestTitle"
+                style="@style/blackTitleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/medium_padding"
+                android:layout_marginRight="@dimen/large_padding"
+                android:text="@{AppUtils.getValue(reminderData.title)}"
+                app:layout_constraintEnd_toStartOf="@id/barrier"
+                app:layout_constraintStart_toEndOf="@id/ivRequest"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Title" />
+
+            <TextView
+                android:id="@+id/tvRequestAddress"
+                style="@style/reg_poppins_light"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/medium_padding"
+                android:layout_marginRight="@dimen/large_padding"
+                android:text="@{reminderData.address}"
+                android:textColor="@color/grayDark"
+                app:layout_constraintEnd_toStartOf="@id/barrier"
+                app:layout_constraintStart_toEndOf="@id/ivRequest"
+                app:layout_constraintTop_toBottomOf="@id/tvRequestTitle"
+                tools:text="Address" />
+
+            <android.support.constraint.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="left"
+                app:constraint_referenced_ids="tvRequestStatus,ivAccept" />
+
+            <TextView
+                android:id="@+id/tvRequestStatus"
+                style="@style/reg_poppins_semi_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                app:isRequestedFlag="@{isRequested}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:status="@{AppUtils.getValue(reminderData.status)}"
+                tools:text="Status" />
+
+            <ImageView
+                android:id="@+id/ivAccept"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/large_padding"
+                android:src="@drawable/ic_accept"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivReject"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivReject"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/ic_reject"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.constraint.Group
+                android:id="@+id/groupRequestAction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="ivAccept,ivReject"
+                app:isRequested="@{isRequested}"
+                app:statusValue="@{AppUtils.getValue(reminderData.status)}" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</layout>

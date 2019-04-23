@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/toolbarLayout"
+            layout="@layout/app_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbarLayout">
+
+            <LinearLayout
+                android:id="@+id/llMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <EditText
+                    android:id="@+id/etTitle"
+                    style="@style/etMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/hint_title" />
+
+                <EditText
+                    android:id="@+id/etDesc"
+                    style="@style/etMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/hint_desc"
+                    android:imeOptions="actionDone" />
+
+                <EditText
+                    android:id="@+id/etType"
+                    style="@style/etMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:drawableEnd="@drawable/ic_down_arrow"
+                    android:focusable="false"
+                    android:hint="@string/hint_reminder_type"
+                    android:longClickable="false"
+                    android:paddingRight="@dimen/large_padding" />
+
+                <EditText
+                    android:id="@+id/etPickLocation"
+                    style="@style/etMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:drawableEnd="@drawable/ic_down_arrow"
+                    android:focusable="false"
+                    android:hint="@string/hint_pick_location"
+                    android:longClickable="false"
+                    android:paddingRight="@dimen/large_padding" />
+
+                <EditText
+                    android:id="@+id/etAssignTo"
+                    style="@style/etMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:drawableEnd="@drawable/ic_down_arrow"
+                    android:focusable="false"
+                    android:hint="@string/hint_assign_to"
+                    android:longClickable="false"
+                    android:paddingRight="@dimen/large_padding" />
+
+                <TextView
+                    style="@style/reg_poppins_reg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/title_radius"
+                    android:textColor="@color/grayLight" />
+
+               <!-- <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        style="@style/reg_poppins_reg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.4"
+                        android:text="200"
+                        android:textColor="@color/grayLight" />
+
+                    <android.support.v7.widget.AppCompatSeekBar
+                        android:id="@+id/seekBarRadius"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.2"
+                        android:max="900"
+                        android:min="200"
+                        android:progress="350" />
+
+                    <TextView
+                        style="@style/reg_poppins_reg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.4"
+                        android:gravity="right"
+                        android:text="900"
+                        android:textColor="@color/grayLight" />
+                </LinearLayout>-->
+
+                <com.georeminder.customView.FluidSlider
+                    android:id="@+id/fluidSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="2dp"
+                    android:layout_marginBottom="8dp"
+                    app:duration="@android:integer/config_mediumAnimTime"
+                    app:bar_color="@color/greenButton"
+                    app:size="small" />
+
+                <TextView
+                    android:id="@+id/tvReminderItem"
+                    style="@style/reg_poppins_reg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:drawableRight="@drawable/ic_add"
+                    android:drawablePadding="@dimen/medium_padding"
+                    android:drawableTint="@color/colorAccent"
+                    android:padding="5dp"
+                    android:text="@string/title_reminder_items"
+                    android:textColor="@color/grayLight" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvReminderItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp" />
+
+                <Button
+                    android:id="@+id/btnSign"
+                    style="@style/btnMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:onClick="onSubmit"
+                    android:text="@string/action_submit" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
